@@ -15,3 +15,11 @@
 
 第二课作业解答  
 ownership_analyzer
+
+
+第三课作业题目：  
+请基于Rust的基本数据结构写一个简单的学生管理系统（比如，学生，社团，班级、课程等），明确类型之间的关系，进行基本的CRUD操作  
+
+第三课作业解答  
+核心逻辑：student_system实现了CRUD操作，依次包括append_info、delete_info、set_info、get_info  
+测试：crud_test
