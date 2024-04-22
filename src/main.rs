@@ -1,6 +1,8 @@
 pub mod char_helper;
+pub mod enum_wrapper;
 pub mod ownership_analyzer;
 pub mod student_system;
+pub mod trait_object;
 pub mod utils;
 
 use char_helper as char_helper_1;
@@ -15,10 +17,10 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use crate::student_system::{Student, StudentSystem};
 
     #[test]
     fn crud_test() {
+        use crate::student_system::{Student, StudentSystem};
         let mut mgt = StudentSystem::new();
         let stu1 = Student {
             id: "29-111",
@@ -84,5 +86,44 @@ mod tests {
 
         mgt.delete_info("29-22");
         assert!(!mgt.get_info("29-222").is_none());
+    }
+
+    #[test]
+    fn enum_wrapper_test() {
+        use crate::enum_wrapper::{Biology, Course, Math, Psychology};
+
+        let math = Course::Math(Math {});
+        let biology = Course::Biology(Biology {});
+        let psychology = Course::Psychology(Psychology {});
+        let crs: Vec<Course> = vec![math, biology, psychology];
+
+        let mut credit_sum = 0;
+
+        for e in crs.iter() {
+            let c = e.get_credit();
+            println!("credit: {c}");
+            credit_sum += c;
+        }
+
+        assert_eq!(credit_sum, 53);
+    }
+
+    #[test]
+    fn trait_object_test() {
+        use crate::trait_object::{Biology, Course, Evaluate, Math, Psychology};
+
+        let math = Math {};
+        let biology = Biology {};
+        let psychology = Psychology {};
+        let crs: Vec<&dyn Evaluate> = vec![&math, &biology, &psychology];
+        let mut credit_sum = 0;
+
+        for e in crs.iter() {
+            let c = Course::get_credit(*e);
+            println!("credit: {c}");
+            credit_sum += c;
+        }
+
+        assert_eq!(credit_sum, 53);
     }
 }
