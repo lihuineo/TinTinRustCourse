@@ -1,5 +1,6 @@
 pub mod add_opt;
 pub mod char_helper;
+pub mod del_macro;
 pub mod enum_wrapper;
 pub mod ownership_analyzer;
 pub mod student_system;
@@ -18,7 +19,7 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use crate::add_opt::make_add;
+    use crate::{add_opt::make_add, multiply};
 
     #[test]
     fn crud_test() {
@@ -141,5 +142,11 @@ mod tests {
         make_add(&mut c, 3);
         assert_eq!(c.re, 4);
         assert_eq!(c.im, 5);
+    }
+
+    #[test]
+    fn del_macro_test() {
+        assert_eq!(multiply!(3, 2), 6);
+        assert_eq!(multiply!(17.0, 2.0), 34.0);
     }
 }
