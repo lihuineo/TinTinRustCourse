@@ -1,3 +1,4 @@
+pub mod add_opt;
 pub mod char_helper;
 pub mod enum_wrapper;
 pub mod ownership_analyzer;
@@ -17,6 +18,7 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use crate::add_opt::make_add;
 
     #[test]
     fn crud_test() {
@@ -125,5 +127,19 @@ mod tests {
         }
 
         assert_eq!(credit_sum, 53);
+    }
+
+    #[test]
+    fn add_opt_test() {
+        use crate::add_opt::{ComplexNum, RealNum};
+
+        let mut r = RealNum { val: 7 };
+        make_add(&mut r, 2);
+        assert_eq!(r.val, 9);
+
+        let mut c = ComplexNum { re: 1, im: 2 };
+        make_add(&mut c, 3);
+        assert_eq!(c.re, 4);
+        assert_eq!(c.im, 5);
     }
 }
