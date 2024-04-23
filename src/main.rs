@@ -1,6 +1,6 @@
 pub mod add_opt;
 pub mod char_helper;
-pub mod del_macro;
+pub mod dec_macro;
 pub mod enum_wrapper;
 pub mod ownership_analyzer;
 pub mod student_system;

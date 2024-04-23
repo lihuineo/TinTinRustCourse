@@ -37,3 +37,10 @@ trait_object_test()单元测试中中，将三种类型放入Vec中进行遍历�
 两种实现方法的区别：枚举的方式需要自定义枚举可能的值，如果需要扩展枚举类型需要修改枚举本身的定义，往往很多时候是不能修改已有的枚举类型的，因此这种方式的扩展性相对较差；而通过Trait Object的方式，如果需要添加有别的类型，只要实现Trait声明的方法即可，扩展性好  
 2.add_opt.rs定义trait Operation, add_with用于进行+运算; 自定义RealNum和ComplexNum实现add_with方法；make_add(a: &mut dyn Operation, num)使用Trait Object实现求和方法的调用；  
 add_opt_test()单元测试
+
+第五课作业题目：  
+请搜索相关文档，实现：一个简单的声明宏并理解其代码结构，和编译过程
+
+第四课作业解答  
+dec_macro定义了两数相乘的声明宏multiply
+
