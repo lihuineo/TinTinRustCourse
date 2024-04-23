@@ -33,6 +33,7 @@ ownership_analyzer
 1.enum_wrapper.rs和trait_object.rs分别定义了三种类型及各自方法。  enum_wrapper.rs枚举类Course定义了Math\Biology\Psychology三种类型，这三个类型都实现credit()方法获取学分。通过Course的get_credit()获取不同课程的学分；  
 trait_object.rs中Math\Biology\Psychology通过实现trait Evaluate的credit()方法获取学分。通过get_credit(a: &dyn Evaluate)依次调用其credit();  
 enum_wrapper_test()单元测试中，将枚举类型放入Vec中进行遍历并对值进行检验；  
-trait_object_test()单元测试中中，将三种类型放入Vec中进行遍历并对值进行检验；
+trait_object_test()单元测试中中，将三种类型放入Vec中进行遍历并对值进行检验；  
+两种实现方法的区别：枚举的方式需要自定义枚举可能的值，如果需要扩展枚举类型需要修改枚举本身的定义，往往很多时候是不能修改已有的枚举类型的，因此这种方式的扩展性相对较差；而通过Trait Object的方式，如果需要添加有别的类型，只要实现Trait声明的方法即可，扩展性好  
 2.add_opt.rs定义trait Operation, add_with用于进行+运算; 自定义RealNum和ComplexNum实现add_with方法；make_add(a: &mut dyn Operation, num)使用Trait Object实现求和方法的调用；  
 add_opt_test()单元测试
