@@ -1,4 +1,4 @@
-pub trait Add {
+pub trait Operation {
     fn add_with(&mut self, num: i32);
 }
 
@@ -11,13 +11,13 @@ pub struct ComplexNum {
     pub im: i32,
 }
 
-impl Add for RealNum {
+impl Operation for RealNum {
     fn add_with(&mut self, num: i32) {
         self.val += num;
     }
 }
 
-impl Add for ComplexNum {
+impl Operation for ComplexNum {
     fn add_with(&mut self, num: i32) {
         self.re += num;
         self.im += num;
@@ -25,6 +25,6 @@ impl Add for ComplexNum {
 }
 
 #[allow(dead_code)]
-pub fn make_add(a: &mut dyn Add, num: i32) {
+pub fn make_add(a: &mut dyn Operation, num: i32) {
     a.add_with(num);
 }
