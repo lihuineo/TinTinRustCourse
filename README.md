@@ -22,6 +22,7 @@ ownership_analyzer
 第三课作业解答  
 核心逻辑：student_system实现了CRUD操作，依次包括append_info、delete_info、set_info、get_info  
 测试：crud_test
+<img width="1427" alt="学生系统测试" src="https://github.com/lihuineo/TinTinRustCourse/assets/161575076/0fa936c5-31dd-499e-8ed3-a97692b12212">
 
 第四课作业题目：  
 1.使用枚举包裹三个不同的类型，并放入一个Vec中，对Vec进行遍历，调用三种不同类型的各自的方法。
@@ -34,13 +35,18 @@ ownership_analyzer
 trait_object.rs中Math\Biology\Psychology通过实现trait Evaluate的credit()方法获取学分。通过get_credit(a: &dyn Evaluate)依次调用其credit();  
 enum_wrapper_test()单元测试中，将枚举类型放入Vec中进行遍历并对值进行检验；  
 trait_object_test()单元测试中中，将三种类型放入Vec中进行遍历并对值进行检验；  
+<img width="1431" alt="枚举方式测试-1" src="https://github.com/lihuineo/TinTinRustCourse/assets/161575076/786a3f4c-9c25-410b-8c2f-e72ef81bad17">
+<img width="1430" alt="trait object方式测试-2" src="https://github.com/lihuineo/TinTinRustCourse/assets/161575076/ec51e10a-a532-4b4c-be74-458ef8d53296">
+
 两种实现方法的区别：枚举的方式需要自定义枚举可能的值，如果需要扩展枚举类型需要修改枚举本身的定义，往往很多时候是不能修改已有的枚举类型的，因此这种方式的扩展性相对较差；而通过Trait Object的方式，如果需要添加有别的类型，只要实现Trait声明的方法即可，扩展性好  
 2.add_opt.rs定义trait Operation, add_with用于进行+运算; 自定义RealNum和ComplexNum实现add_with方法；make_add(a: &mut dyn Operation, num)使用Trait Object实现求和方法的调用；  
 add_opt_test()单元测试
+<img width="1416" alt="加法测试-3" src="https://github.com/lihuineo/TinTinRustCourse/assets/161575076/d4133dc5-ab14-45c0-be69-2ea6117ea5cc">
 
 第五课作业题目：  
 请搜索相关文档，实现：一个简单的声明宏并理解其代码结构，和编译过程
 
 第五课作业解答  
-dec_macro定义了两数相乘的声明宏multiply
+dec_macro定义了两数相乘的声明宏multiply，del_macro_test()单元测试
+<img width="1434" alt="声明宏测试" src="https://github.com/lihuineo/TinTinRustCourse/assets/161575076/e37c6f1b-ecbc-4241-8b37-d1379fd87683">
 
